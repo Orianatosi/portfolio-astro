@@ -1,0 +1,69 @@
+---
+const { imagen, sitio, titulo } = Astro.props;
+---
+
+<article class="release">
+  <a href={sitio} target="_blank">
+    {imagen && <img src={imagen.src ?? imagen} alt={titulo} />}
+    <div class="release_info">
+      <h2>{titulo}</h2>
+    </div>
+  </a>
+</article>
+
+<style>
+.release {
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background: #fafafa;
+  position: relative;
+}
+
+.release:hover {
+  transform: scale(1.03);
+}
+
+/* imágenes */
+.release img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 350px;
+  transition: filter 0.4s ease, transform 0.3s ease;
+}
+
+/* overlay info */
+.release_info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 60, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.release:hover .release_info {
+  opacity: 1;
+}
+
+.release:hover img {
+  filter: brightness(100%) blur(15px);
+
+}
+
+.release_info h2 {
+  font-size: 1.2rem;
+  font-family: "Rokkitt", serif;
+  font-weight: lighter;
+}
+
+</style>

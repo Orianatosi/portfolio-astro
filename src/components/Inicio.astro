@@ -1,0 +1,52 @@
+---
+const { imagen } = Astro.props;
+const imgSrc = imagen && typeof imagen === 'object' && imagen.src ? imagen.src : imagen;
+---
+
+<div class="portada-container liquify">
+  <img src={imgSrc} alt="Portada" />
+</div>
+
+<style>
+.portada-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px; /* profundidad para efecto 3D */
+}
+
+.liquify img {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+}
+</style>
+
+<script type="module">
+  const container = document.querySelector(".liquify");
+  const img = container?.querySelector("img");
+
+  if (container && img) {
+    container.addEventListener("mousemove", (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      const rotateX = y * 50;
+      const rotateY = x * 50;
+      const translateX = x * 60;
+      const translateY = y * 60;
+
+      img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate(${translateX}px, ${translateY}px) scale(1.02)`;
+    });
+
+    container.addEventListener("mouseleave", () => {
+      img.style.transform = "rotateX(0deg) rotateY(0deg) translate(0px, 0px) scale(1)";
+    });
+  }
+</script>
+

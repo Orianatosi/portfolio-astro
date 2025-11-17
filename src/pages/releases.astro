@@ -1,0 +1,116 @@
+---  
+import ImagenesGrilla from '../components/imagenesGrilla.astro';  
+import imagen1 from '../imagenes/auna.png'
+import onyros from '../imagenes/onyros.jpg'
+import lazos from '../imagenes/lazos.jpg'
+import paseo from '../imagenes/paseonocturno.jpg'
+import Layout from '../layouts/Layout.astro';
+
+---
+  <Layout>
+        <h1>releases</h1>
+        <div class="releases-grilla">  
+            
+          <ImagenesGrilla
+          sitio="https://biodiversitarecords.bandcamp.com/album/a-na"
+          titulo="Aúna - Album (biodiversita records - 2025)"
+          imagen={imagen1}
+          />
+           <ImagenesGrilla
+          sitio="https://sacce4.bandcamp.com/album/paseo-nocturno-mixtape"
+          titulo="Paseo nocturno - mixtape (2024)"
+          imagen={paseo}
+          />
+
+
+          <ImagenesGrilla
+          sitio="https://nodolabel.bandcamp.com/album/onyros"
+          titulo="Onyros - EP (nodo label - 2021)"
+          imagen={onyros}
+          />
+
+          <ImagenesGrilla
+          sitio="https://nodolabel.bandcamp.com/album/lazos"
+          titulo="Lazos - lyas EP (duo - nodo label 2024)"
+          imagen={lazos}
+          />
+          <ImagenesGrilla
+          sitio="https://nodolabel.bandcamp.com/album/onyros"
+          titulo="Onyros - EP (nodo label - 2021)"
+          imagen={onyros}
+          /><ImagenesGrilla
+          sitio="https://nodolabel.bandcamp.com/album/onyros"
+          titulo="Onyros - EP (nodo label - 2021)"
+          imagen={onyros}
+          />
+         
+        </div> 
+        <div id="videos">
+            <h2>live</h2>
+            <div class="releases-grilla">
+                <div class="video_contenedor">
+                    <iframe width="400" height="200" src="https://www.youtube.com/embed/krWtXtfseYQ?si=zxt8AYs0qY3d25CC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3>nave anima (2021)</h3>
+                </div>
+                
+                <div class="video_contenedor">
+                    <iframe width="400" height="200" src="https://www.youtube.com/embed/axXXije6j0k?si=MHWUW7bxffz9jnCS" title="liveset" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3>lyas - ciclo aura (2024)</h3>
+                    <p>(2024)</p>
+            </div>
+        </div>
+    </Layout>
+
+    <style>
+        /* titulo */
+h1 {
+    color: #363836;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+/* grilla de releases */
+.releases-grilla {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+
+
+/* videos */
+.video_contenedor {
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background: #fafafa;
+  transition: transform 0.3s ease;
+  font-family: "Rokkitt", serif;
+  font-optical-sizing: auto;
+  font-weight:lighter;
+  font-style: normal;
+
+}
+
+/* grilla */
+#videos {
+  background-color: #ffffff; 
+  text-align: center;
+  font-size: 12px;
+  color: #252525;
+}
+
+#videos h2 { 
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: center;     /* centra vertical */
+  height: 100px; 
+}
+
+    </style>

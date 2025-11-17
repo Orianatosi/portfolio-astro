@@ -1,22 +1,100 @@
+---
+import "../style/global.css";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<title>sáccea</title>
 	</head>
-	<body>
-		<slot />
+
+	<body class="fade-page">
+		<div class="container">
+			<header>
+				<h2>sáccea</h2>
+				<nav >
+					<ul>
+						<li><a href="/imginicio">inicio</a></li>
+						<li><a href="#">performance</a></li>
+						<li><a href="/releases">releases</a></li>
+						<li><a href="#">works</a></li>
+						<li><a href="/bio">biografia</a></li>
+					</ul>
+				</nav>
+
+				<nav>
+					<ul>
+						<li><a href=https://www.instagram.com/s_ccea>instagram</a></li>
+						<li><a href="#">contacto</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<main>
+				<slot />
+			</main>
+		</div>
 	</body>
 </html>
 
 <style>
-	html,
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		padding: 40px;
+		font-family: "Helvetica Neue", sans-serif;
+	}
+
+	.container {
+		display: grid;
+		grid-template-columns: 200px 1fr; /* NAV + CONTENIDO */
+		gap: 40px;
+	}
+
+	header {
+		grid-column: 1; /* queda fijo a la izquierda */
+	}
+
+	nav ul {
+		list-style: none;
+		padding: 0;
+		margin: 20px 0 0 0;
+	}
+
+	nav li {
+		margin-bottom: 5px;
+	}
+
+	nav a {
+		text-decoration: none;
+		color: #555;
+		font-size: 14px;
+		font-family: "Rokkitt", serif;
+		font-weight: 300;
+	}
+
+/* Link activo: más negrita y fondo sutil */
+nav li a.active {
+  font-weight: 700;
+  background: rgba(0,0,0,0.1); /* fondo difuminado */
+  color: #000;
+}
+
+/* Hover: color de fondo difuminado + pequeño movimiento */
+nav li a:hover {
+  background: rgba(115, 228, 49, 0.15);
+  transform: translateX(5px);
+  color: #000000;
+}
+
+	main {
+		grid-column: 2; /* contenido a la derecha */
 	}
 </style>
