@@ -1,0 +1,48 @@
+---
+const { title, image, text } = Astro.props;
+---
+
+<div class="evento">
+  <div class="thumbnail">
+    <img src={image} alt={title} />
+  </div>
+
+  <h3>{title}</h3>
+
+  {text && (
+    <p class="descripcion">{text}</p>
+  )}
+</div>
+
+<style>
+  .evento {
+    margin-bottom: 40px;
+    cursor: pointer;    
+    text-align-last: center;
+  }
+
+  .evento img {
+  display: block;
+  margin: 0 auto;       
+  max-width: 80%;
+}
+
+  .thumbnail img {
+    width: 50%;;
+    display: block;
+  }
+
+  h3 {
+    font-family: "Rokkitt", serif;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .descripcion {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #444;
+    font-family: "Rokkitt", serif;
+  }
+</style>
+

@@ -4,6 +4,9 @@ import imagen1 from '../imagenes/auna.png'
 import onyros from '../imagenes/onyros.jpg'
 import lazos from '../imagenes/lazos.jpg'
 import paseo from '../imagenes/paseonocturno.jpg'
+import eon from '../imagenes/eon.jpg'
+import agries from '../imagenes/agries.jpg'
+
 import Layout from '../layouts/Layout.astro';
 
 ---
@@ -13,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
             
           <ImagenesGrilla
           sitio="https://biodiversitarecords.bandcamp.com/album/a-na"
-          titulo="Aúna - Album (biodiversita records - 2025)"
+          titulo="Aúna - LP (biodiversita records - 2025)"
           imagen={imagen1}
           />
            <ImagenesGrilla
@@ -35,13 +38,13 @@ import Layout from '../layouts/Layout.astro';
           imagen={lazos}
           />
           <ImagenesGrilla
-          sitio="https://nodolabel.bandcamp.com/album/onyros"
-          titulo="Onyros - EP (nodo label - 2021)"
-          imagen={onyros}
+          sitio="https://sacce4.bandcamp.com/track/e-n-s-ccea-x-lusiaen"
+          titulo="Eón - ft. lusiaen (sencillo 2021)"
+          imagen={eon}
           /><ImagenesGrilla
-          sitio="https://nodolabel.bandcamp.com/album/onyros"
-          titulo="Onyros - EP (nodo label - 2021)"
-          imagen={onyros}
+          sitio="https://sacce4.bandcamp.com/track/agries"
+          titulo="Agries (sencillo 2019)"
+          imagen={agries}
           />
          
         </div> 
@@ -75,10 +78,13 @@ h1 {
 .releases-grilla {
   display: flex;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 90px;
   max-width: 1200px;
   margin: 0 auto;
   flex-wrap: wrap;
+  justify-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 

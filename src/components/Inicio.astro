@@ -37,9 +37,9 @@ const imgSrc = imagen && typeof imagen === 'object' && imagen.src ? imagen.src :
       const y = (e.clientY - rect.top) / rect.height - 0.5;
 
       const rotateX = y * 50;
-      const rotateY = x * 50;
-      const translateX = x * 60;
-      const translateY = y * 60;
+      const rotateY = x * 80;
+      const translateX = x * 8;
+      const translateY = y * 8;
 
       img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate(${translateX}px, ${translateY}px) scale(1.02)`;
     });

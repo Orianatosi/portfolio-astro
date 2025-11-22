@@ -30,11 +30,11 @@ const { imagen, sitio, titulo } = Astro.props;
   height: auto;
   display: block;
   object-fit: cover;
-  max-height: 350px;
+  max-height: 250px;
   transition: filter 0.4s ease, transform 0.3s ease;
 }
 
-/* overlay info */
+/* info */
 .release_info {
   position: absolute;
   top: 0;
@@ -46,9 +46,9 @@ const { imagen, sitio, titulo } = Astro.props;
   justify-content: center;
   text-align: center;
   color: white;
-  background-color: rgba(0, 60, 0, 0.4);
+  background-color: rgba(38, 115, 38, 0.4);
   opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
 }
 
 .release:hover .release_info {
@@ -56,8 +56,9 @@ const { imagen, sitio, titulo } = Astro.props;
 }
 
 .release:hover img {
-  filter: brightness(100%) blur(15px);
-
+  mix-blend-mode: color;
+  background: #73e431;   
+  filter: brightness(0%)  saturate(500%); 
 }
 
 .release_info h2 {

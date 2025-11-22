@@ -1,9 +1,10 @@
 ---
 import "../style/global.css";
+const { pathname } = Astro.url;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,83 +19,229 @@ import "../style/global.css";
 
 	<body class="fade-page">
 		<div class="container">
+
 			<header>
 				<h2>sáccea</h2>
-				<nav >
+
+				<!-- boton hamburguesa -->
+				<button id="hamburger" aria-label="Abrir menú">☰</button>
+
+				<!-- nav original -->
+				<nav class="nav-desktop">
 					<ul>
-						<li><a href="/imginicio">inicio</a></li>
-						<li><a href="#">performance</a></li>
-						<li><a href="/releases">releases</a></li>
+						<li><a href="/" class={pathname === "/" ? "active" : ""}>inicio</a></li>
+						<li><a href="/performance" class={pathname === "/performance" ? "active" : ""}>performance</a></li>
+						<li><a href="/releases" class={pathname === "/releases" ? "active" : ""}>releases</a></li>
 						<li><a href="#">works</a></li>
-						<li><a href="/bio">biografia</a></li>
+						<li><a href="/bio" class={pathname === "/bio" ? "active" : ""}>biografia</a></li>
 					</ul>
 				</nav>
 
-				<nav>
+				<nav class="nav-desktop">
 					<ul>
-						<li><a href=https://www.instagram.com/s_ccea>instagram</a></li>
+						<li><a href="https://www.instagram.com/s_ccea">instagram</a></li>
 						<li><a href="#">contacto</a></li>
 					</ul>
 				</nav>
+
+				<!-- OV VERDE -->
+				<div id="overlay"></div>
+
+				<!-- nav mobile -->
+				<div id="mobile-menu">
+					<nav>
+						<ul>
+							<li><a href="/" class={pathname === "/" ? "active" : ""}>inicio</a></li>
+							<li><a href="/performance" class={pathname === "/performance" ? "active" : ""}>performance</a></li>
+							<li><a href="/releases" class={pathname === "/releases" ? "active" : ""}>releases</a></li>
+							<li><a href="#">works</a></li>
+							<li><a href="/bio" class={pathname === "/bio" ? "active" : ""}>biografia</a></li>
+						</ul>
+					</nav>
+
+					<nav>
+						<ul>
+							<li><a href="https://www.instagram.com/s_ccea">instagram</a></li>
+							<li><a href="#">contacto</a></li>
+						</ul>
+					</nav>
+				</div>
 			</header>
 
 			<main>
 				<slot />
 			</main>
 		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const btn = document.getElementById("hamburger");
+				const menu = document.getElementById("mobile-menu");
+				const overlay = document.getElementById("overlay");
+
+				if (!btn || !menu || !overlay) return;
+
+				btn.addEventListener("click", () => {
+					menu.classList.toggle("open");
+					overlay.classList.toggle("show");
+				});
+
+				overlay.addEventListener("click", () => {
+					menu.classList.remove("open");
+					overlay.classList.remove("show");
+				});
+			});
+		</script>
+
 	</body>
 </html>
 
+
 <style>
+
+
+body {
+	margin: 0;
+	padding: 40px;
+	font-family: "Helvetica Neue", sans-serif;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	gap: 40px;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	width: 200px;
+	z-index: 999;
+	background: white;
+	padding-bottom: 10px;
+}
+
+
+nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 20px 0 0 0;
+}
+
+nav li {
+	margin-bottom: 5px;
+}
+
+nav a {
+	text-decoration: none;
+	color: #555;
+	font-size: 14px;
+	font-family: "Rokkitt", serif;
+	font-weight: 300;
+}
+
+nav li a.active {
+	font-weight: 700;
+	color: #5a6156;
+}
+
+nav li a:hover {
+	background: rgba(163, 251, 112, 0.15);
+	transform: translateX(5px);
+	color: #73e431;
+}
+
+main {
+	grid-column: 2;
+	min-width: 0;
+	overflow: hidden;
+}
+
+
+
+/* boton */
+#hamburger {
+  display: none; 
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;    
+  right: 20px;
+  top: 20px;
+  z-index: 1500;
+}
+
+
+
+/*  OV verde */
+
+#overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(163, 251, 112, 0.25);
+	backdrop-filter: blur(2px);
+	z-index: 1200;
+}
+
+#overlay.show {
+	display: block;
+}
+
+
+/* menucelu */
+
+#mobile-menu {
+	display: none;
+	position: absolute;
+	top: 60px;
+	left: 0;
+	width: 100%;
+	background: white;
+	padding: 20px 0;
+	border-top: 1px solid #ddd;
+	z-index: 1400;
+}
+
+#mobile-menu.open {
+	display: block;
+}
+
+
+/* mediaq */
+
+@media (max-width: 768px) {
+
 	body {
-		margin: 0;
-		padding: 40px;
-		font-family: "Helvetica Neue", sans-serif;
+		padding: 20px;
 	}
 
 	.container {
-		display: grid;
-		grid-template-columns: 200px 1fr; /* NAV + CONTENIDO */
-		gap: 40px;
+		grid-template-columns: 1fr;
 	}
 
-	header {
-		grid-column: 1; /* queda fijo a la izquierda */
+	/* con este se muestra */
+	#hamburger {
+		display: block;
+	}
+
+	.nav-desktop {
+		display: none;
 	}
 
 	nav ul {
-		list-style: none;
-		padding: 0;
-		margin: 20px 0 0 0;
+		margin: 10px 0;
+		padding-left: 20px;
 	}
-
-	nav li {
-		margin-bottom: 5px;
-	}
-
-	nav a {
-		text-decoration: none;
-		color: #555;
-		font-size: 14px;
-		font-family: "Rokkitt", serif;
-		font-weight: 300;
-	}
-
-/* Link activo: más negrita y fondo sutil */
-nav li a.active {
-  font-weight: 700;
-  background: rgba(0,0,0,0.1); /* fondo difuminado */
-  color: #000;
-}
-
-/* Hover: color de fondo difuminado + pequeño movimiento */
-nav li a:hover {
-  background: rgba(115, 228, 49, 0.15);
-  transform: translateX(5px);
-  color: #000000;
-}
 
 	main {
-		grid-column: 2; /* contenido a la derecha */
+		grid-column: 1;
+		margin-top: 140px;
 	}
+}
+
 </style>

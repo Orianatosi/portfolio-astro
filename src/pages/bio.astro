@@ -4,51 +4,66 @@ import ak from "../imagenes/ak.jpg";
 ---
 
 <Layout>
-  <h2>biografia</h2>
-  <p class="biografia">
-    sáccea (oriana tosi) es artista sonora/visual y productora musical de Buenos
-    Aires, Argentina. Su obra explora paisajes internos, lo onírico y la
-    memoria. Con su proyecto, se ha presentado en formato live set en diversos
-    espacios, vinculando grabaciones de campo con sintetizadores digitales para
-    generar narrativas sonoras no lineales que transiten entre la fantasía y lo
-    terrenal. Algunos espacios a destacar son el MACBA - Museo de Arte
-    Contemporáneo de Buenos Aires, Centro de Arte Sonoro en la Casa Nacional del
-    Bicentenario, Museo MAR - Museo de Arte Contemporáneo de la Provincia de
-    Buenos Aires, Laboratorio AE, Tecnópolis y Centro Cultural San Martín.
-    Participó en el festival internacional MUTEK AR en sus ediciones 2023 y
-    2024. Ha presentado instalaciones sonoras y videoinstalaciones, explorando
-    la relación entre territorio, percepción y memoria a través de diversas
-    materialidades y tecnologías. Realizó el diseño sonoro y soundtrack para
-    cortometrajes, postproducción de audio para diversos proyectos musicales y
-    dictó talleres de creación sonora basados en la escucha y la experimentación
-    con grabaciones y procesamientos de audio. Desde el año 2022 conforma el dúo
-    Lyas junto a Catriel Nievas, donde utilizan guitarras eléctricas y
-    sintetizadores distorsionados bordeando el drone, ambient y shoegaze.
-  </p>
+  <div class="bio-wrapper">
+    <h1>biografía</h1>
+    <div class="bio-content">
+      <p class="biografia">
+        Sáccea (Oriana Tosi) es artista sonora/visual y productora musical de Buenos Aires, Argentina. Su obra explora paisajes internos, lo onírico y la memoria.
 
-  <bioImg imagen={ak} />
+Con su proyecto, se ha presentado en formato live set en diversos espacios, vinculando grabaciones de campo con sintetizadores digitales para generar narrativas sonoras no lineales que transiten entre la fantasía y lo terrenal.
+
+Algunos espacios a destacar son el MACBA - Museo de Arte Contemporáneo de Buenos Aires, Centro de Arte Sonoro en la Casa Nacional del Bicentenario, Museo MAR - Museo de Arte Contemporáneo de la Provincia de Buenos Aires, Laboratorio AE, Tecnópolis y Centro Cultural San Martín. Participó en el festival internacional MUTEK AR en sus ediciones 2023 y 2024.
+
+
+Ha presentado instalaciones sonoras y videoinstalaciones, explorando la relación entre territorio, percepción y memoria a través de diversas materialidades y tecnologías.
+
+
+Realizó el diseño sonoro y soundtrack para cortometrajes, postproducción de audio para diversos proyectos musicales y dictó talleres de creación sonora basados en la escucha y la experimentación con grabaciones y procesamientos de audio.
+
+Desde el año 2022 conforma el dúo Lyas junto a Catriel Nievas, donde utilizan guitarras eléctricas y sintetizadores distorsionados bordeando el drone, ambient y shoegaze.
+      </p>
+
+      <img class="bio-img" src={ak.src} alt="sáccea" />
+    </div>
+  </div>
 </Layout>
 
 <style>
   .bio-wrapper {
-    max-width: 750px; /* ancho de lectura cómodo */
-    margin: 0 auto; /* centrado */
-    padding: 2rem 1.5rem; /* aire lateral */
-  }
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
 
-  .biografia {
-    font-family: "Rokkitt", serif;
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: #222;
-    text-align: left;
-    margin-bottom: 5rem;
+h1 {
+    color: #363836;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
 
-    /* bloque ancho y cómodo */
-    max-width: 80%;
-  }
+.bio-content {
+  display: flex;
+  align-items: flex-start; 
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
 
-  .biografia + .biografia {
-    margin-top: 1.5rem;
-  }
+.biografia {
+  font-family: "Rokkitt", serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #222;
+  text-align: justify; /* <- esto asegura que el texto se justifique */
+  flex: 1 1 500px; 
+}
+
+.bio-img {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+}
+
 </style>
