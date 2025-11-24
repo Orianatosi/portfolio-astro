@@ -1,0 +1,68 @@
+---
+const { isOpen = false, title = "", text = "", images = [] } = Astro.props;
+---
+
+<div id="modal" class={`modal-backdrop ${isOpen ? "open" : ""}`}>
+  <div class="modal-content">
+    <button class="close-btn" onClick={() => dispatchEvent(new CustomEvent("closeModal"))}>✕</button>
+
+    <h2>{title}</h2>
+    <p>{text}</p>
+
+    {images.length > 0 && (
+      <div class="modal-images">
+        {images.map((img) => (
+          <img src={img} />
+        ))}
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  max-width: 700px;
+  width: 90%;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal-images {
+  margin-top: 1rem;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.modal-images img {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+</style>

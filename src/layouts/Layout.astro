@@ -33,14 +33,13 @@ const { pathname } = Astro.url;
 						<li><a href="/performance" class={pathname === "/performance" ? "active" : ""}>performance</a></li>
 						<li><a href="/releases" class={pathname === "/releases" ? "active" : ""}>releases</a></li>
 						<li><a href="#">works</a></li>
-						<li><a href="/bio" class={pathname === "/bio" ? "active" : ""}>biografia</a></li>
+						<li><a href="/bio" class={pathname === "/bio" ? "active" : ""}>bio</a></li>
 					</ul>
 				</nav>
 
 				<nav class="nav-desktop">
 					<ul>
-						<li><a href="https://www.instagram.com/s_ccea">instagram</a></li>
-						<li><a href="#">contacto</a></li>
+						<li><a href="/contacto">contacto</a></li>
 					</ul>
 				</nav>
 
@@ -91,6 +90,7 @@ const { pathname } = Astro.url;
 					overlay.classList.remove("show");
 				});
 			});
+			
 		</script>
 
 	</body>
@@ -104,6 +104,8 @@ body {
 	margin: 0;
 	padding: 40px;
 	font-family: "Helvetica Neue", sans-serif;
+	background-color: #ffffff;
+
 }
 
 .container {

@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+<div class="bio-links">
+  <a href="mailto:saccea.contacto@gmail.com" class="email-link">contactarme</a>
+
+  <div class="social-buttons">
+    <a href="https://instagram.com/s_ccea" target="_blank" class="social-btn">Instagram</a>
+    <a href="https://linkedin.com/in/oriantosi" target="_blank" class="social-btn">LinkedIn</a>
+  </div>
+</div>
+</Layout>
+
+<style>
+    /* CONTENEDOR DE LINKS */
+.bio-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.email-link {
+  font-family: "Rokkitt", serif;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #363836;
+  transition: opacity 0.3s ease;
+}
+
+.email-link:hover {
+  opacity: 0.6;
+}
+
+/* BOTONES SOCIALES */
+.social-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-btn {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.95rem;
+  font-family: "Rokkitt", serif;
+
+  border: 1px solid #363836;
+  color: #363836;
+  text-decoration: none;
+
+  border-radius: 3px;
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    opacity 0.4s ease;
+}
+
+.social-btn:hover {
+  background-color: #363836;
+  color: #fff;
+  opacity: 0.9;
+}
+
+</style>

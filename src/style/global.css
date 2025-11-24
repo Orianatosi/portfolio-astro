@@ -31,3 +31,15 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+
+
+
+body {
+   cursor: url("/cursor.jpg") 16 16, auto;
+
+}
+
+
+
+
