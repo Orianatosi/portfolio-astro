@@ -2,47 +2,53 @@
 const { title, image, text } = Astro.props;
 ---
 
-<div class="evento">
-  <div class="thumbnail">
+<div class="evento-card">
+  <div class="evento-img-wrapper">
     <img src={image} alt={title} />
   </div>
-
-  <h3>{title}</h3>
-
-  {text && (
-    <p class="descripcion">{text}</p>
-  )}
+  <p class="evento-title">{title}</p>
 </div>
 
 <style>
-  .evento {
-    margin-bottom: 40px;
-    cursor: pointer;    
-    text-align-last: center;
-  }
-
-  .evento img {
-  display: block;
-  margin: 0 auto;       
-  max-width: 80%;
+.evento-card {
+  width: 100%;
+  max-width: 550px;        
+  overflow: hidden;
+  background: white;
+  display: flex;
+  flex-direction: column;
 }
 
-  .thumbnail img {
-    width: 50%;;
-    display: block;
-  }
+/* contenedor de la imagen con proporcion fija */
+.evento-img-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;    
+  overflow: hidden;
+}
 
-  h3 {
-    font-family: "Rokkitt", serif;
-    margin-top: 10px;
-    font-size: 18px;
-  }
+.evento-card:hover {
+  transform: scale(1.03);
+    transition:
+    transform 0.5s ease,     /* escala cuando entra */
+}
 
-  .descripcion {
-    margin-top: 6px;
-    font-size: 14px;
-    color: #444;
-    font-family: "Rokkitt", serif;
-  }
+
+/* imagen */
+.evento-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+}
+
+/* titulo */
+.evento-title {
+  font-family: "Rokkitt", serif;
+  padding: 12px 10px;
+  font-size: 18px;
+  color: #363836;
+  text-align: center;
+  margin: 0%;
+}
 </style>
-

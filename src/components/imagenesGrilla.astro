@@ -22,6 +22,7 @@ const { imagen, sitio, titulo } = Astro.props;
 
 .release:hover {
   transform: scale(1.03);
+
 }
 
 /* imágenes */
@@ -59,6 +60,9 @@ const { imagen, sitio, titulo } = Astro.props;
   mix-blend-mode: color;
   background: #73e431;   
   filter: brightness(0%)  saturate(500%); 
+  transition:
+    transform 0.4s ease,     /* escala cuando entra */
+    filter 3s ease;           /* desvanecimiento suave al salir */
 }
 
 .release_info h2 {
